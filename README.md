@@ -23,7 +23,7 @@ When the data is specific to a particular axis, it is labeled "XAxis", "YAxis", 
 
 Features
 ==========
-timeBodyAccelerationMeanXAxis\\
+timeBodyAccelerationMeanXAxis  
 timeBodyAccelerationMeanYAxis
 timeBodyAccelerationMeanZAxis
 timeBodyAccelerationSTDXAxis
