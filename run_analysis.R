@@ -1,4 +1,4 @@
-progress=FALSE
+progress=TRUE
 library(sqldf)
 grep="grep -E 'mean()|std()'"
 features=read.csv.sql("UCI HAR Dataset/features.txt",sep=" ",header=FALSE,filter=grep)
