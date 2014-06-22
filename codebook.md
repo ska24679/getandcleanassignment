@@ -36,10 +36,10 @@ STD: Standard deviation
 Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
 gravityMean  
-tBodyAccMean  
-tBodyAccJerkMean  
-tBodyGyroMean  
-tBodyGyroJerkMean  
+timeBodyAccMean  
+timeBodyAccJerkMean  
+timeBodyGyroMean  
+timeBodyGyroJerkMean  
 
 The complete list of variables of each feature vector is available in 'features.txt'
 
@@ -56,7 +56,7 @@ The resulting tidy dataset is named tidydata.csv.  The first two columns are for
 
 Note
 ====
-This document is a modified version of UCI HAR Dataset/features_info.txt and UCI HAR Dataset/README.txt by the following
+This document is a modified version of UCI HAR Dataset/features_info.txt and UCI HAR Dataset/README.txt by the following:
 
 Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.  
 Smartlab - Non Linear Complex Systems Laboratory  
