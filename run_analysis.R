@@ -5,7 +5,7 @@ features=read.csv.sql("UCI HAR Dataset/features.txt",sep=" ",header=FALSE,filter
 #Make the labels verbose and data.frame friendly
 #I feel there must be a better way...
 #verbose=array(c("^t","time","^f","freq","Acc","Acceleration","Mag","Magnitude",
-verbose=array(c("^t","time","^f","freq","([XYZ])","\\1Axis","mean","Mean","std","STD"),c(2,7))
+verbose=array(c("^t","time","^f","freq","([XYZ])","\\1Axis","mean","Mean","std","STD"),c(2,5))
 
 for(i in 1:dim(verbose)[2]) {
 #	print(sprintf("s/%s/%s/",verbose[1,i],verbose[2,i]))
@@ -39,23 +39,33 @@ for(i in 1:dim(activity)[1]) {
 	wholedata["activity"][wholedata["activity"]==activity[i,1]]=activity[i,2]
 }
 
-tdrows=c()
-for(i in 1:dim(activity)[1]) {
-	tdrows=c(tdrows,paste(activity[i,2],"_",features[,2],sep=""))
-}
+#tdrows=c()
+#for(i in 1:dim(activity)[1]) {
+#	tdrows=c(tdrows,paste(activity[i,2],"_",features[,2],sep=""))
+#}
 
-tidydata=data.frame(row.names=tdrows)
+tidydata=data.frame()
+#Probably a better way, but set up the dataframe now
+tidydata[1,"subject"]=NA
+tidydata[1,"activity"]=NA
+for(f in features[,2]) { tidydata[1,f]=NA }
+
 subjects=as.character(unique(wholedata[["subject"]]))
 featureaverage=paste(sprintf("AVG(%s)",features[,2]),collapse=",")
-tidydata[subjects]=0
+
+row=1
 #Inefficient loops? Lets have a loop party.
 for(a in activity[,2]) {
 	for(s in subjects) {
 		query=sprintf("select %s from wholedata where activity='%s' and subject='%s'",featureaverage,a,s)
 		averages=sqldf(query)
-		replace=sprintf("%s_\\1",a)
+		replace="\\1"
 		names(averages)=sub("AVG.(.*).",replace,perl=TRUE,names(averages))
-		tidydata[names(averages)]=as.numeric(averages)
+		tidydata[row,"subject"]=s
+		tidydata[row,"activity"]=a
+		tidydata[row,names(averages)]=as.numeric(averages)
+		row=row+1
 		print(sprintf("Done with subject %s %s",s,a))
 	}
 }
+write.csv(file="tidydata.csv",tidydata)
