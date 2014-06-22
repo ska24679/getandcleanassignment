@@ -10,36 +10,36 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '{X|Y|Z}Axis' is used to denote 3-axial signals in the X, Y and Z directions.
 
-timeBodyAccelleration{X|Y|Z}Axis
-timeGravityAccelleration{X|Y|Z}Axis
-timeBodyAccellerationJerk{X|Y|Z}Axis
-timeBodyGyro{X|Y|Z}Axis
-timeBodyGyroJerk{X|Y|Z}Axis
-timeBodyAccellerationMagnitude
-timeGravityAccellerationMagnitude
-timeBodyAccellerationJerkMagnitude
-timeBodyGyroMagnitude
-timeBodyGyroJerkMagnitude
-freqBodyAcc{X|Y|Z}Axis
-freqBodyAccJerk{X|Y|Z}Axis
-freqBodyGyro{X|Y|Z}Axis
-freqBodyAccMagnitude
-freqBodyAccJerkMagnitude
-freqBodyGyroMagnitude
-freqBodyGyroJerkMagnitude
+timeBodyAccelleration{X|Y|Z}Axis  
+timeGravityAccelleration{X|Y|Z}Axis  
+timeBodyAccellerationJerk{X|Y|Z}Axis  
+timeBodyGyro{X|Y|Z}Axis  
+timeBodyGyroJerk{X|Y|Z}Axis  
+timeBodyAccellerationMagnitude  
+timeGravityAccellerationMagnitude  
+timeBodyAccellerationJerkMagnitude  
+timeBodyGyroMagnitude  
+timeBodyGyroJerkMagnitude  
+freqBodyAcc{X|Y|Z}Axis  
+freqBodyAccJerk{X|Y|Z}Axis  
+freqBodyGyro{X|Y|Z}Axis  
+freqBodyAccMagnitude  
+freqBodyAccJerkMagnitude  
+freqBodyGyroMagnitude  
+freqBodyGyroJerkMagnitude  
 
 We are using a subset of the variables that were estimated from these signals:
 
-Mean: Mean value
-STD: Standard deviation
+Mean: Mean value  
+STD: Standard deviation  
 
 Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
-gravityMean
-tBodyAccMean
-tBodyAccJerkMean
-tBodyGyroMean
-tBodyGyroJerkMean
+gravityMean  
+tBodyAccMean  
+tBodyAccJerkMean  
+tBodyGyroMean  
+tBodyGyroJerkMean  
 
 The complete list of variables of each feature vector is available in 'features.txt'
 
@@ -58,12 +58,12 @@ Note
 ====
 This document is a modified version of UCI HAR Dataset/features_info.txt and UCI HAR Dataset/README.txt by the following
 
-Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
-Smartlab - Non Linear Complex Systems Laboratory
-DITEN - Università degli Studi di Genova.
-Via Opera Pia 11A, I-16145, Genoa, Italy.
-activityrecognition@smartlab.ws
-www.smartlab.ws
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.  
+Smartlab - Non Linear Complex Systems Laboratory  
+DITEN - Università degli Studi di Genova.  
+Via Opera Pia 11A, I-16145, Genoa, Italy.  
+activityrecognition@smartlab.ws  
+www.smartlab.ws  
 
 License:
 ========
