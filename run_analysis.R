@@ -4,8 +4,8 @@ features=read.csv.sql("UCI HAR Dataset/features.txt",sep=" ",header=FALSE,filter
 
 #Make the labels verbose and data.frame friendly
 #I feel there must be a better way...
-verbose=array(c("^t","time","^f","freq","Acc","Acceleration","Mag","Magnitude",
-"([XYZ])","\\1Axis","mean","Mean","std","STD"),c(2,7))
+#verbose=array(c("^t","time","^f","freq","Acc","Acceleration","Mag","Magnitude",
+verbose=array(c("^t","time","^f","freq","([XYZ])","\\1Axis","mean","Mean","std","STD"),c(2,7))
 
 for(i in 1:dim(verbose)[2]) {
 #	print(sprintf("s/%s/%s/",verbose[1,i],verbose[2,i]))
@@ -52,9 +52,10 @@ tidydata[subjects]=0
 for(a in activity[,2]) {
 	for(s in subjects) {
 		query=sprintf("select %s from wholedata where activity='%s' and subject='%s'",featureaverage,a,s)
-		row=paste(a,s,sep="")
-		print(query)
-		#Hu... ok.  Maybe that's not the row.  Maybe I'm too tired
-		#print=sqldf(query)
+		averages=sqldf(query)
+		replace=sprintf("%s_\\1",a)
+		names(averages)=sub("AVG.(.*).",replace,perl=TRUE,names(averages))
+		tidydata[names(averages)]=as.numeric(averages)
+		print(sprintf("Done with subject %s %s",s,a))
 	}
 }
