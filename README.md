@@ -5,7 +5,9 @@ Getting And Cleaning Data course project
 
 This assumes the dataset is in the current working directory, in a directory named "UCI HAR Dataset".  The script "get_data.R" can be used to pull down the dataset and unzip it.
 
-The resulting tidy dataset is named tidydata.csv.  The first two columns are for the subject's ID number, and the activity.  The remaining columns are averages(mean) of of the observations of the features for the specified subject and activity.
+The script "run_analysis.R" generates a tidy dataset from the full dataset, and saves it to a file named "tidydata.csv".
+
+The first two columns of "tidydata.csv" are for the subject's ID number, and the activity.  The remaining columns are the features. Each row contains a subject's ID number, activity, and a mean of the observations of the features.
 
 See UCI HAR Dataset/features_info.txt and UCI HAR Dataset/README.txt for more information about collection procedures, preprocessing, and filtering.
 
@@ -21,84 +23,4 @@ Gyro denotes data collected from the gyroscope.  Think of tilt data, or a level.
 
 When the data is specific to a particular axis, it is labeled "XAxis", "YAxis", or, "ZAxis".
 
-Features
-==========
-timeBodyAccelerationMeanXAxis  
-timeBodyAccelerationMeanYAxis  
-timeBodyAccelerationMeanZAxis  
-timeBodyAccelerationSTDXAxis  
-timeBodyAccelerationSTDYAxis  
-timeBodyAccelerationSTDZAxis  
-timeGravityAccelerationMeanXAxis  
-timeGravityAccelerationMeanYAxis  
-timeGravityAccelerationMeanZAxis  
-timeGravityAccelerationSTDXAxis  
-timeGravityAccelerationSTDYAxis  
-timeGravityAccelerationSTDZAxis  
-timeBodyAccelerationJerkMeanXAxis  
-timeBodyAccelerationJerkMeanYAxis  
-timeBodyAccelerationJerkMeanZAxis  
-timeBodyAccelerationJerkSTDXAxis  
-timeBodyAccelerationJerkSTDYAxis  
-timeBodyAccelerationJerkSTDZAxis  
-timeBodyGyroMeanXAxis  
-timeBodyGyroMeanYAxis  
-timeBodyGyroMeanZAxis  
-timeBodyGyroSTDXAxis  
-timeBodyGyroSTDYAxis  
-timeBodyGyroSTDZAxis  
-timeBodyGyroJerkMeanXAxis  
-timeBodyGyroJerkMeanYAxis  
-timeBodyGyroJerkMeanZAxis  
-timeBodyGyroJerkSTDXAxis  
-timeBodyGyroJerkSTDYAxis  
-timeBodyGyroJerkSTDZAxis  
-timeBodyAccelerationMagnitudeMean  
-timeBodyAccelerationMagnitudeSTD  
-timeGravityAccelerationMagnitudeMean  
-timeGravityAccelerationMagnitudeSTD  
-timeBodyAccelerationJerkMagnitudeMean  
-timeBodyAccelerationJerkMagnitudeSTD  
-timeBodyGyroMagnitudeMean  
-timeBodyGyroMagnitudeSTD  
-timeBodyGyroJerkMagnitudeMean  
-timeBodyGyroJerkMagnitudeSTD  
-freqBodyAccelerationMeanXAxis  
-freqBodyAccelerationMeanYAxis  
-freqBodyAccelerationMeanZAxis  
-freqBodyAccelerationSTDXAxis  
-freqBodyAccelerationSTDYAxis  
-freqBodyAccelerationSTDZAxis  
-freqBodyAccelerationMeanFreqXAxis  
-freqBodyAccelerationMeanFreqYAxis  
-freqBodyAccelerationMeanFreqZAxis  
-freqBodyAccelerationJerkMeanXAxis  
-freqBodyAccelerationJerkMeanYAxis  
-freqBodyAccelerationJerkMeanZAxis  
-freqBodyAccelerationJerkSTDXAxis  
-freqBodyAccelerationJerkSTDYAxis  
-freqBodyAccelerationJerkSTDZAxis  
-freqBodyAccelerationJerkMeanFreqXAxis  
-freqBodyAccelerationJerkMeanFreqYAxis  
-freqBodyAccelerationJerkMeanFreqZAxis  
-freqBodyGyroMeanXAxis  
-freqBodyGyroMeanYAxis  
-freqBodyGyroMeanZAxis  
-freqBodyGyroSTDXAxis  
-freqBodyGyroSTDYAxis  
-freqBodyGyroSTDZAxis  
-freqBodyGyroMeanFreqXAxis  
-freqBodyGyroMeanFreqYAxis  
-freqBodyGyroMeanFreqZAxis  
-freqBodyAccelerationMagnitudeMean  
-freqBodyAccelerationMagnitudeSTD  
-freqBodyAccelerationMagnitudeMeanFreq  
-freqBodyBodyAccelerationJerkMagnitudeMean  
-freqBodyBodyAccelerationJerkMagnitudeSTD  
-freqBodyBodyAccelerationJerkMagnitudeMeanFreq  
-freqBodyBodyGyroMagnitudeMean  
-freqBodyBodyGyroMagnitudeSTD  
-freqBodyBodyGyroMagnitudeMeanFreq  
-freqBodyBodyGyroJerkMagnitudeMean  
-freqBodyBodyGyroJerkMagnitudeSTD  
-freqBodyBodyGyroJerkMagnitudeMeanFreq  
+Please see codebook.md for a more detailed description of the features and activities.
