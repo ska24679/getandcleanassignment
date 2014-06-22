@@ -9,7 +9,7 @@ The script "run_analysis.R" generates a tidy dataset from the full dataset, and 
 
 The first two columns of "tidydata.csv" are for the subject's ID number, and the activity.  The remaining columns are the features. Each row contains a subject's ID number, activity, and a mean of the observations of the features.
 
-See UCI HAR Dataset/features_info.txt and UCI HAR Dataset/README.txt for more information about collection procedures, preprocessing, and filtering.
+Please see codebook.md for a more detailed description of the features and activities, as well as information about collection procedures, preprocessing, and filtering.
 
 The feature names have been altered slightly to be more legible in "camelCase".
 
@@ -23,4 +23,3 @@ Gyro denotes data collected from the gyroscope.  Think of tilt data, or a level.
 
 When the data is specific to a particular axis, it is labeled "XAxis", "YAxis", or, "ZAxis".
 
-Please see codebook.md for a more detailed description of the features and activities.
