@@ -1,4 +1,4 @@
-progress=TRUE
+progress=FALSE
 library(sqldf)
 grep="grep -E 'mean()|std()'"
 features=read.csv.sql("UCI HAR Dataset/features.txt",sep=" ",header=FALSE,filter=grep)
@@ -55,7 +55,7 @@ subjects=as.character(unique(wholedata[["subject"]]))
 featureaverage=paste(sprintf("AVG(%s)",features[,2]),collapse=",")
 
 print("Warning: From this point on, the code is slow.  Expect a runtime > 2 minutes")
-print("Change to progress=TRUE for updates while running")
+print("Change to progress=TRUE on line 1 for updates while running")
 
 row=1
 #Inefficient loops? Lets have a loop party.
