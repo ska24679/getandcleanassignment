@@ -1,14 +1,15 @@
+progress=FALSE
 library(sqldf)
 grep="grep -E 'mean()|std()'"
 features=read.csv.sql("UCI HAR Dataset/features.txt",sep=" ",header=FALSE,filter=grep)
 
 #Make the labels verbose and data.frame friendly
 #I feel there must be a better way...
-#verbose=array(c("^t","time","^f","freq","Acc","Acceleration","Mag","Magnitude",
-verbose=array(c("^t","time","^f","freq","([XYZ])","\\1Axis","mean","Mean","std","STD"),c(2,5))
+verbose=array(c("^t","time","^f","freq","Acc","Acceleration","Mag","Magnitude",
+"([XYZ])","\\1Axis","mean","Mean","std","STD"),c(2,7))
 
 for(i in 1:dim(verbose)[2]) {
-#	print(sprintf("s/%s/%s/",verbose[1,i],verbose[2,i]))
+	if(progress){print(sprintf("s/%s/%s/",verbose[1,i],verbose[2,i]))}
 	features[,2]=sub(verbose[1,i],verbose[2,i],features[,2],perl=TRUE)
 }
 features[,2]=gsub("[^A-Za-z]","",features[,2],perl=TRUE)
@@ -53,6 +54,9 @@ for(f in features[,2]) { tidydata[1,f]=NA }
 subjects=as.character(unique(wholedata[["subject"]]))
 featureaverage=paste(sprintf("AVG(%s)",features[,2]),collapse=",")
 
+print("Warning: From this point on, the code is slow.  Expect a runtime > 2 minutes")
+print("Change to progress=TRUE for updates while running")
+
 row=1
 #Inefficient loops? Lets have a loop party.
 for(a in activity[,2]) {
@@ -65,7 +69,7 @@ for(a in activity[,2]) {
 		tidydata[row,"activity"]=a
 		tidydata[row,names(averages)]=as.numeric(averages)
 		row=row+1
-		print(sprintf("Done with subject %s %s",s,a))
+		if(progress){print(sprintf("Done with subject %s %s",s,a))}
 	}
 }
 write.csv(file="tidydata.csv",tidydata)
